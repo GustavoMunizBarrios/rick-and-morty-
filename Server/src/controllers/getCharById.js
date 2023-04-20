@@ -1,4 +1,4 @@
-const axios = requiere('axios');
+const axios = require('axios');
 
 const getCharById = (res, id) => {
     axios(`https://rickandmortyapi.com/api/character/${id}`) //Petición a la API de rick and morty
