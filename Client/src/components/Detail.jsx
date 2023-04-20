@@ -2,8 +2,8 @@ import axios from 'axios';
 import { useParams } from 'react-router-dom'; // useParams nos permite obtener el valor de la variable de la ruta 
 import { useState, useEffect } from 'react';
 
-const URL_BASE = 'https://be-a-rym.up.railway.app/api/character';
-const API_KEY = 'f99ef8399d40.cea0bfba7c15f21eb580';
+/* const URL_BASE = 'https://be-a-rym.up.railway.app/api/character';
+const API_KEY = 'f99ef8399d40.cea0bfba7c15f21eb580'; */
 
 const Detail = () => {
     //useParams es un objeto que contiene la propiedad id (el cual viene de la ruta 'detail/:id')
@@ -18,7 +18,7 @@ const Detail = () => {
 
     // Recordar que useEffect simula los tres ciclos de vida del componente
     useEffect(() => {
-        axios(`${URL_BASE}/${id}?key=${API_KEY}`) // axios hace una petición a la API, cuando axios responde nos da un objeto
+        axios(`http://localhost:3001/rickandmorty/character/${id}`) // axios hace una petición a la API, cuando axios responde nos da un objeto
         .then(response => response.data) // Aqui es cuando recibo la respuesta de la API, y me quedo con data que es un objeto
         .then((data) => { // Aquí trabajamos con esa información
            if (data.name) {  //si hay un data.name entonces 
