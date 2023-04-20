@@ -18,7 +18,7 @@ const Detail = () => {
 
     // Recordar que useEffect simula los tres ciclos de vida del componente
     useEffect(() => {
-        axios(`http://localhost:3001/rickandmorty/character/${id}`) // axios hace una petición a la API, cuando axios responde nos da un objeto
+        axios(`https://rickandmortyapi.com/api/character/${id}`) // axios hace una petición a la API, cuando axios responde nos da un objeto
         .then(response => response.data) // Aqui es cuando recibo la respuesta de la API, y me quedo con data que es un objeto
         .then((data) => { // Aquí trabajamos con esa información
            if (data.name) {  //si hay un data.name entonces 

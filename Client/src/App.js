@@ -37,7 +37,7 @@ function App() {
       //Con axios le hago peticiones a una api al servidor, el id lo estamos obteniendo del input, 
       //es decir de lo que escribe el usuario. 
 
-      axios(`http://localhost:3001/rickandmorty/character/${id}`) 
+      axios(`https://rickandmortyapi.com/api/character/${id}`) 
       //Una vez que se ejecuta la petición, obtengo la respuesta con .then
       //Axios retorna un objeto con una propiedad llamada data y ahi dentro es donde tengo la información de la api
 
