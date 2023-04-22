@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import {addFav, removeFav} from '../redux/actions'
+import {addFav, removeFav} from '../../redux/actions'
 import { connect } from 'react-redux';
 import { useState, useEffect } from 'react';
 
