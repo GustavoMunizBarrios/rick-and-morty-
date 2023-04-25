@@ -1,5 +1,4 @@
-//simulando una base de datos
-let myFavorites = [];
+let myFavorites = []; //simulando una base de datos
 
 const postFav = (req, res) => {
     const character = req.body;
