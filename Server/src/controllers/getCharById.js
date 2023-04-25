@@ -1,5 +1,5 @@
 // Controlador con Express
-const URL ='https://richandmortyapi.com/api/character'
+const URL ='https://rickandmortyapi.com/api/character';
 const axios = require('axios');
 
 //La función recibe solicitudes HTTP GET y se encarga de buscar un personaje por su identificador (ID) en la API
@@ -10,7 +10,7 @@ const getCharById = async (req, res) => {
         // Petición a la API a partir del ID que recibimos por params.
         //Devuelve un JSON con las propiedades status, name, species, origin, image, gender.
          //recibimos a data con destructuring
-        if(!data.name) throw new Error(`Faltan datos del personaje deon ID: ${id}`) // Si yo lanzo un error lo redirijo a catch(error)
+        if(!data.name) throw Error(`Faltan datos del personaje deon ID: ${id}`) // Si yo lanzo un error lo redirijo a catch(error)
         //si tengo un nombre significa que tengo personaje (que existe) entonces:
         const character = { // Crea un objeto con las propiedades del personaje.
             id:data.id, 
