@@ -1,13 +1,19 @@
-const http = require('http'); //importar http desde el modulo http
-const {getCharById} = require('./controllers/getCharById')
+//Cambiar todo esto
+const express = require('express')
+const server = express()
+const router = require('routes/index')
+const PORT = 3001
 
-http.createServer((request, response)=>{ //crea el servidor
-    response.setHeader('Access-Control-Allow-Origin', '*'); //esta linea le da permisos al fronted de que pueda hacer peticiones.
+server.use(express.json());
 
-    if(request.url.includes('/rickandmorty/character')){
-        const id = request.url.split('/').at(-1); //divide la cedena de texto url utilizando split('/'), utiliza at(-1) para acceder al ultimo elemento del array (que en este caso es el id)
-        getCharById(res, +id)
-    }
-
+server.use((req, res, next) => {
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Credentials', 'true');
+    res.header(
+        'Access-Control-Allow-Headers',
+        '');
 })
-.listen(3001/* , 'localhost' */) //levanta el servidor en el puerto 3001
+
+server.listen(PORT, () => {
+    console.log(`Server raised in port: ${PORT}`);
+})
