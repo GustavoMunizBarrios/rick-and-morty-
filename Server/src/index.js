@@ -2,9 +2,13 @@ const express = require('express')
 const server = express()
 const PORT = 3001
 const router = require('./routes/index')
+//"morgan" registra información útil, como el método HTTP utilizado (GET, POST, etc.), la URL solicitada,
+//la hora en que se recibió la solicitud y el tiempo de respuesta, entre otros detalles.
+const morgan = require('morgan');
 
 // Middleware que ejecuta a express.json().
 server.use(express.json());  // La información que llega en formato json la pasa a objeto de JS, para que la pueda trabajar
+server.use(morgan('dev'));
 
 //---------------------- Middleware ----------------------------
 //Le da permiso al front, para que pueda acceder a nuestras rutas
