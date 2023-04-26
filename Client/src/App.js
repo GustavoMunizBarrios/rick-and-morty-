@@ -19,7 +19,7 @@ function App() {
    const location = useLocation(); //Retorna la locación del objeto. la cual representa la url
    const navigate = useNavigate() // Cambia la locación de la url 
    const [characters, setCharacters] = useState([]); //characters es un estado del tipo array de objetos
-   const [access, setAcces] = useState(false); //access es un estado inicializado en false
+   const [access, setAccess] = useState(false); //access es un estado inicializado en false
 
    const login = (userData) => {
       const { email, password } = userData; // Hace destructuring del objeto userData, extayendo las propiedades email y password
@@ -74,7 +74,7 @@ function App() {
 
          {/* Con Route definimos las rutas y que se ve a mostrar en cada una de ellas, después con Link le mostramos a que path se va a dirigir */}
          <Routes>
-            <Route path='/' element={<Form login={login}  setAcces={setAcces}/>}/>
+            <Route path='/' element={<Form login={login}  setAcces={setAccess}/>}/>
             <Route path='/home' element={ <Cards characters={characters} onClose={onClose}/> }/>
             <Route path='/about' element={<About/>} />
             <Route path='/detail/:id' element={<Detail/>} />
