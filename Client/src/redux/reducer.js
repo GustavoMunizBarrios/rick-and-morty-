@@ -23,11 +23,7 @@ const reducer = (state = initialState, { type, payload }) => { //el segundo par�
             return {
                 ...state,
                 //Recordar que el método filter devuelve un nuevo array con los elementos que cumplan con la condición especificada 
-                myFavorites: state.myFavorites.filter(fav => fav.id !== payload) // Aplicamos un método filter al estado 
-                                                                                // myFavorites, recorremos a cada chacaracter dentro de 
-                                                                                // myFavorites, si el id de algun character es diferente
-                                                                                // al id que recibimos por payload entonces lo agrega
-                                                                                // al nuevo array myFavorites.
+                myFavorites: payload 
             }
         case FILTER:
             const allCharactersFiltered =state.allCharactersFav.filter(character => character.gender === payload)
