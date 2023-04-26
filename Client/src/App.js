@@ -19,18 +19,23 @@ function App() {
    const location = useLocation(); //Retorna la locación del objeto. la cual representa la url
    const navigate = useNavigate() // Cambia la locación de la url 
    const [characters, setCharacters] = useState([]); //characters es un estado del tipo array de objetos
-   const [acess, setAcces] = useState(false); //acess es un estado inicializado en false
+   const [access, setAcces] = useState(false); //access es un estado inicializado en false
 
    const login = (userData) => {
-      if(userData.email === email && userData.password === password){
-         setAcces(true);
-         navigate('/home');
-      }
+      const { email, password } = userData; // Hace destructuring del objeto userData, extayendo las propiedades email y password
+      const URL = 'http://localhost:3001/rickandmorty/login/';
+      axios(URL + `?email=${email}&password=${password}`) //realiza una petición GET a la URL pasando como parametros email y password
+      //Si la solicitud es exitosa regresa el objeto data que es: {access:true} con un valor booleano true o false.
+      .then(({ data }) => {
+         const { access } = data; //Hace destructuring de data, extrayendo el valor booleano (true o false)
+         setAccess(access); // Configura el estado access con el valor booleano (true o false)
+         access && navigate('/home'); //Si access es true, entonces ingreso al home
+      });
    }
 
-   useEffect(() => { // cada vez que cambie acess se ejecuta lo que este en useEffect
-      !acess && navigate('/') // si acess esta en false entonces no va a llevar a otra ruta que no sea /
-   }, [acess]) // El array de dependencias se queda "escuchando" a acess
+   useEffect(() => { // cada vez que cambie access se ejecuta lo que este en useEffect
+      !access && navigate('/') // si access esta en false entonces no va a llevar a otra ruta que no sea /
+   }, [access]) // El array de dependencias se queda "escuchando" a access
 
    // La función onSearch agrega un nuevo personaje al estado local characters
    const onSearch = (id) => {
