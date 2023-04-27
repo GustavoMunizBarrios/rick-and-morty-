@@ -12,8 +12,9 @@ import { Routes, Route, useLocation, useNavigate } from 'react-router-dom';
 /* const URL_BASE = 'https://be-a-rym.up.railway.app/api/character';
 const API_KEY = 'f99ef8399d40.cea0bfba7c15f21eb580'; */
 
-const email = 'Gustavo@gmail.com'
-const password = '123456'
+/* const email = 'Gustavo@gmail.com'
+const password = '123456' */
+const URL = 'http://localhost:3001/rickandmorty/';
 
 function App() {
    const location = useLocation(); //Retorna la locación del objeto. la cual representa la url
@@ -21,40 +22,41 @@ function App() {
    const [characters, setCharacters] = useState([]); //characters es un estado del tipo array de objetos
    const [access, setAccess] = useState(false); //access es un estado inicializado en false
 
-   const login = (userData) => {
-      const { email, password } = userData; // Hace destructuring del objeto userData, extayendo las propiedades email y password
-      const URL = 'http://localhost:3001/rickandmorty/login/';
-      axios(URL + `?email=${email}&password=${password}`) //realiza una petición GET a la URL pasando como parametros email y password
-      //Si la solicitud es exitosa regresa el objeto data que es: {access:true} con un valor booleano true o false.
-      .then(({ data }) => {
+   const login = async (userData) => {
+      try {
+         const { email, password } = userData; // Hace destructuring del objeto userData, extayendo las propiedades email y password
+         const {data} = await axios(URL + `login/?email=${email}&password=${password}`) //realiza una petición GET a la URL pasando como parametros email y password
+         //Si la solicitud es exitosa regresa el objeto data que es: {access:true} con un valor booleano true o false.
          const { access } = data; //Hace destructuring de data, extrayendo el valor booleano (true o false)
          setAccess(access); // Configura el estado access con el valor booleano (true o false)
          access && navigate('/home'); //Si access es true, entonces ingreso al home
-      });
+
+      } catch (error) {
+         console.log(error.message);
+      }
    }
 
    useEffect(() => { // cada vez que cambie access se ejecuta lo que este en useEffect
       !access && navigate('/') // si access esta en false entonces no va a llevar a otra ruta que no sea /
    }, [access]) // El array de dependencias se queda "escuchando" a access
 
-   // La función onSearch agrega un nuevo personaje al estado local characters
-   const onSearch = (id) => {
-      //Con axios le hago peticiones a una api al servidor, el id lo estamos obteniendo del input, 
-      //es decir de lo que escribe el usuario. 
+   // La función onSearch agrega un nuevo personaje al estado local characters. Hace una petición sync-awit con axios
+   const onSearch = async (id) => {
+      try {
+         //Con axios le hago peticiones a una api al servidor, el id lo estamos obteniendo del input, es decir de lo que escribe el usuario. 
+         const {data} = await axios(URL + `character/${id}`); 
+         
+         //Axios retorna el objeto data y ahi dentro es donde tengo todas las propiedades del character
 
-      axios(`https://rickandmortyapi.com/api/character/${id}`) 
-      //Una vez que se ejecuta la petición, obtengo la respuesta con .then
-      //Axios retorna un objeto con una propiedad llamada data y ahi dentro es donde tengo la información de la api
-
-      .then(response => response.data)  //de la respuesta que me retorna me quedo con data
-      .then((data) => { 
          if (data.name) { // si hay un data.name entonces 
             //setea characters [Crea una copia de todo lo que tenia characters(...oldChars), concatena la nueva respuesta (data)]
             setCharacters((oldChars) => [...oldChars, data]); 
-         } else {
-            window.alert('¡No hay personajes con este ID!');
-         }
-      });
+         } 
+         
+      } catch (error) {
+         alert('¡No hay personajes con este ID!');
+      }
+
    }
 
    const onClose = (id) => {
