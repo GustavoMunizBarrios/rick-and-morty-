@@ -28,7 +28,7 @@ export const removeFav = (id) => {
       try {
          const {data} = await axios.delete(endpoint);
 
-         if(!data.length) throw Error('No hay favoritos') //(data es un array con los personajes) Si data esta vacio tira error
+         //if(!data.length) throw Error('No hay favoritos') //(data es un array con los personajes) Si data esta vacio tira error
 
          return dispatch({
             type: REMOVE_FAV,
