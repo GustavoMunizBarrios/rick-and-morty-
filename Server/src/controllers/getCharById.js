@@ -3,14 +3,14 @@ const URL ='https://rickandmortyapi.com/api/character';
 const axios = require('axios');
 
 //La función recibe solicitudes HTTP GET y se encarga de buscar un personaje por su identificador (ID) en la API
-const getCharById = async (req, res) => { 
+const getCharById = async (req, res) => {  //Async va siempre antes de la definición de la función, indico que la función es asincrona
     try {
         const {id} = req.params; // destructuring del objeto params para obtener el id
-        const {data} = await axios(`${URL}/${id}`)
+        const {data} = await axios(`${URL}/${id}`) //destructuring de la api con el id (para obtener el character)
         // Petición a la API a partir del ID que recibimos por params.
         //Devuelve un JSON con las propiedades status, name, species, origin, image, gender.
          //recibimos a data con destructuring
-        if(!data.name) throw Error(`Faltan datos del personaje deon ID: ${id}`) // Si yo lanzo un error lo redirijo a catch(error)
+        if(!data.name) throw Error(`Faltan datos del personaje con ID: ${id}`) // Si yo lanzo un error lo redirijo a catch(error)
         //si tengo un nombre significa que tengo personaje (que existe) entonces:
         const character = { // Crea un objeto con las propiedades del personaje.
             id:data.id, 
@@ -23,13 +23,10 @@ const getCharById = async (req, res) => {
         }
         return res.status(200).json(character) // Regresa el character 
         
-            //return res.status(404).send('Not found'); // Si no tengo un name, no tengo un personaje por lo que regresa 'Not found'
-        
-
-    } catch (error){
-        return error.message.includes('ID')
-        ? res.status(404).send(error.message) 
-        : res.status(500).send(error.response.data.error) // si se busca un ID que no existe entra aqui y devuelve 'Character not found'
+    } catch (error){ //error es un objeto el cual en su propiedad message esta el mensaje: `Faltan datos del personaje con ID: ${id}`
+        return error.message.includes('ID') // el objeto error en su propiedad message esta incluido 'ID' ? 
+        ? res.status(404).send(error.message)  // si es asi devuleve como respuesta status(404) y mensaje: `Faltan datos del personaje con ID: ${id}`
+        : res.status(500).send(error.response.data.error) // si no tiene 'ID' status(404) y mensaje: 'Character not found'
     }
 
 }
