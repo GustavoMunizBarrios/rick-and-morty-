@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import {addFav, removeFav} from '../../redux/actions'
 import { connect } from 'react-redux';
 import { useState, useEffect } from 'react';
+import style from "./Card.module.css";
 
 function Card({ id, name, species, gender, image, onClose, addFav, removeFav, myFavorites }) {
 
@@ -29,27 +30,30 @@ function Card({ id, name, species, gender, image, onClose, addFav, removeFav, my
    }, [myFavorites]);
 
    return (
-      <div>
-         { //randerizado condicional
-            isFav 
-            ? ( //isfav en true, entonces: 
-               <button onClick={handleFavorite}>❤️</button>
-            ) : ( //isfav en false, entonces:
-               <button onClick={handleFavorite}>🤍</button>
-            )
-            
-         }
-         <button onClick={() => onClose(id)}>X</button>
+      <div className={style.card}>
+         <div className={style.card2}>
+            <button onClick={() => onClose(id)}>X</button>
 
-         <Link to={`/detail/${id}`}> {/* la ruta me va a dirigir a a /detail mas el id que le pasemos por parámetro a Card */}
-            <h2>{name}</h2>
-         </Link>
+            <Link to={`/detail/${id}`}> {/* la ruta me va a dirigir a a /detail mas el id que le pasemos por parámetro a Card */}
+               <h2>{name}</h2>
+            </Link>
 
-         <h2>{species}</h2>
-         <h2>{gender}</h2>
-         {/* <h2>{status}</h2>
-         <h2>{origin}</h2> */}
-         <img src={image} alt='' />
+            {
+               /*<h2>{species}</h2>
+               <h2>{gender}</h2>
+               <h2>{status}</h2>
+               <h2>{origin}</h2> */
+            }
+            <img className={style.img} src={image} alt='' />
+            { //randerizado condicional
+               isFav 
+               ? ( //isfav en true, entonces: 
+                  <button onClick={handleFavorite}>❤️</button>
+               ) : ( //isfav en false, entonces:
+                  <button onClick={handleFavorite}>🤍</button>
+               )
+            }
+         </div> 
       </div>
    );
 }
