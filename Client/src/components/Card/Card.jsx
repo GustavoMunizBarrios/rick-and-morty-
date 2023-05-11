@@ -32,7 +32,16 @@ function Card({ id, name, species, gender, image, onClose, addFav, removeFav, my
    return (
       <div className={style.card}>
          <div className={style.card2}>
-            <button onClick={() => onClose(id)}>X</button>
+            <img className={style.img} src={image} alt='' />
+
+            <button className={style.btnX} onClick={() => onClose(id)}>
+               <span className={style.btnX_text}>Delete</span>
+               <span className={style.btnX_icon}>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                     <path d="M24 20.188l-8.315-8.209 8.2-8.282-3.697-3.697-8.212 8.318-8.31-8.203-3.666 3.666 8.321 8.24-8.206 8.313 3.666 3.666 8.237-8.318 8.285 8.203z"></path>
+                  </svg>
+               </span>
+            </button>
 
             <Link to={`/detail/${id}`}> {/* la ruta me va a dirigir a a /detail mas el id que le pasemos por parámetro a Card */}
                <h2>{name}</h2>
@@ -44,13 +53,12 @@ function Card({ id, name, species, gender, image, onClose, addFav, removeFav, my
                <h2>{status}</h2>
                <h2>{origin}</h2> */
             }
-            <img className={style.img} src={image} alt='' />
             { //randerizado condicional
                isFav 
                ? ( //isfav en true, entonces: 
-                  <button onClick={handleFavorite}>❤️</button>
+                  <button onClick={handleFavorite} className={style.btn}>Add to Favorites 💛</button>
                ) : ( //isfav en false, entonces:
-                  <button onClick={handleFavorite}>🤍</button>
+                  <button onClick={handleFavorite} className={style.btn}>Add to Favorites 🤍</button>
                )
             }
          </div> 
