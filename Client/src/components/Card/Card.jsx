@@ -35,7 +35,7 @@ function Card({ id, name, species, gender, image, onClose, addFav, removeFav, my
             <img className={style.img} src={image} alt='' />
 
             <button className={style.btnX} onClick={() => onClose(id)}>
-               <span className={style.btnX_text}>Eliminar</span>
+               <span className={style.btnX_text}>Remove</span>
                <span className={style.btnX_icon}>
                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                      <path d="M24 20.188l-8.315-8.209 8.2-8.282-3.697-3.697-8.212 8.318-8.31-8.203-3.666 3.666 8.321 8.24-8.206 8.313 3.666 3.666 8.237-8.318 8.285 8.203z"></path>
@@ -44,7 +44,7 @@ function Card({ id, name, species, gender, image, onClose, addFav, removeFav, my
             </button>
 
             <Link to={`/detail/${id}`}> {/* la ruta me va a dirigir a a /detail mas el id que le pasemos por parámetro a Card */}
-               <h2>{name}</h2>
+               <button className={style.btnName}>{name}</button>
             </Link>
 
             {
@@ -56,9 +56,16 @@ function Card({ id, name, species, gender, image, onClose, addFav, removeFav, my
             { //randerizado condicional
                isFav 
                ? ( //isfav en true, entonces: 
-                  <button onClick={handleFavorite} className={style.btn}>Add to Favorites 💛</button>
+                  <button onClick={handleFavorite} className={style.btnFav}>
+                     <span className={style.btnFav_text}>Add to Fav</span>
+                     <span className={style.btnFav_icon}>
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="#ffffff"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <title></title> <g id="Complete"> <g data-name="add" id="add-2"> <g> <line fill="none" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" x1="12" x2="12" y1="19" y2="5"></line> <line fill="none" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" x1="5" x2="19" y1="12" y2="12"></line> </g> </g> </g> </g></svg>
+                     </span>
+                  </button>
                ) : ( //isfav en false, entonces:
-                  <button onClick={handleFavorite} className={style.btn}>Add to Favorites 🤍</button>
+                  <button onClick={handleFavorite} className={style.btnFav}>
+                     <svg className={style.btnFav_tick} viewBox="0 0 24.00 24.00" xmlns="http://www.w3.org/2000/svg" fill="#ffffff"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <title></title> <g id="Complete"> <g id="tick"> <polyline fill="none" points="3.7 14.3 9.6 19 20.3 5" stroke="#fafafa" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.4"></polyline> </g> </g> </g></svg>
+                  </button>
                )
             }
          </div> 
