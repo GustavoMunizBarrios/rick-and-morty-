@@ -27,27 +27,29 @@
     transform: scale(0.98) ;
     border-radius: 20px;
 }
- /******** BOTÓN DE ELIMINAR CARD ***********/
+/* ****************************************************** */
+ /**************** BOTÓN DE ELIMINAR CARD *****************/
+/* ****************************************************** */
 
-.card2:hover .btnX {
+ .card2:hover .btnX {
     display: block;
     position: absolute;
     top: 0.625rem;
     right: 0.625rem;
     z-index: 5;
 
-    width: 150px;
-    height: 50px;
+    width: 75px; /* Reducción del 50% */
+    height: 25px; /* Reducción del 50% */
     cursor: pointer;
     display: flex;
     align-items: center;
     background: red;
     border: none;
     border-radius: 5px;
-    box-shadow: 1px 1px 3px rgba(0,0,0,0.15);
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.15);
     background: #e62222;
+    padding: 0;
 }
-   
 .card2 .btnX {
     display: none;
     position: absolute;
@@ -55,26 +57,28 @@
     right: 0.625rem;
     z-index: 5;
 }
-.card2 .btnX, .btnX span {
+.card2 .btnX,
+.btnX span {
     transition: 200ms;
 }
 .card2 .btnX .btnX_text {
-    transform: translateX(35px);
+    transform: translateX(17.5px); /* Reducción del 50% */
     color: white;
     font-weight: bold;
+    font-size: 8px;
 }
 .card2 .btnX .btnX_icon {
     position: absolute;
     border-left: 1px solid #c41b1b;
-    transform: translateX(110px);
-    height: 40px;
-    width: 40px;
+    transform: translateX(55px); /* Reducción del 50% */
+    height: 20px; /* Reducción del 50% */
+    width: 20px; /* Reducción del 50% */
     display: flex;
     align-items: center;
     justify-content: center;
 }
 .card2 .btnX svg {
-    width: 15px;
+    width: 7.5px; /* Reducción del 50% */
     fill: #eee;
 }
 .card2 .btnX:hover {
@@ -84,7 +88,7 @@
     color: transparent;
 }
 .card2 .btnX:hover .btnX_icon {
-    width: 150px;
+    width: 75px; /* Reducción del 50% */
     border-left: none;
     transform: translateX(0);
 }
@@ -94,7 +98,8 @@
 .card2 .btnX:active .btnX_icon svg {
     transform: scale(0.8);
 }
-
+/* ****************************************************** */
+/* ****************************************************** */
 .btn {
     all: initial;
 }
