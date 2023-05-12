@@ -1,8 +1,8 @@
+import style from "./Card.module.css";
 import { Link } from 'react-router-dom';
 import {addFav, removeFav} from '../../redux/actions'
 import { connect } from 'react-redux';
 import { useState, useEffect } from 'react';
-import style from "./Card.module.css";
 
 function Card({ id, name, species, gender, image, onClose, addFav, removeFav, myFavorites }) {
 
@@ -10,10 +10,10 @@ function Card({ id, name, species, gender, image, onClose, addFav, removeFav, my
 
    const handleFavorite = () => {
       if (isFav) {
-         setIsFav(false)
-         removeFav(id)
+         setIsFav(false);
+         removeFav(id);
       } else {
-         setIsFav(true)
+         setIsFav(true);
          addFav({id, name, species, gender, image, onClose}) //Aqui le paso todo el objeto del personaje, ya que es lo que espera el payload de addFav
       }
    }
@@ -53,21 +53,7 @@ function Card({ id, name, species, gender, image, onClose, addFav, removeFav, my
                <h2>{status}</h2>
                <h2>{origin}</h2> */
             }
-            { //randerizado condicional
-               isFav 
-               ? ( //isfav en true, entonces: 
-                  <button onClick={handleFavorite} className={style.btnFav}>
-                     <span className={style.btnFav_text}>Add to Fav</span>
-                     <span className={style.btnFav_icon}>
-                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="#ffffff"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <title></title> <g id="Complete"> <g data-name="add" id="add-2"> <g> <line fill="none" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" x1="12" x2="12" y1="19" y2="5"></line> <line fill="none" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" x1="5" x2="19" y1="12" y2="12"></line> </g> </g> </g> </g></svg>
-                     </span>
-                  </button>
-               ) : ( //isfav en false, entonces:
-                  <button onClick={handleFavorite} className={style.btnFav}>
-                     <svg className={style.btnFav_tick} viewBox="0 0 24.00 24.00" xmlns="http://www.w3.org/2000/svg" fill="#ffffff"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <title></title> <g id="Complete"> <g id="tick"> <polyline fill="none" points="3.7 14.3 9.6 19 20.3 5" stroke="#fafafa" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.4"></polyline> </g> </g> </g></svg>
-                  </button>
-               )
-            }
+            <button onClick={handleFavorite}>{isFav ? '❤️' : '🤍' }</button>
          </div> 
       </div>
    );
