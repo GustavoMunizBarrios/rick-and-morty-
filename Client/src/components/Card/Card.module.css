@@ -122,13 +122,16 @@
     cursor: pointer;
     display: flex;
     align-items: center;
-    background: #3aa856;
-    border: none;
+    border: 1px solid #3aa856; 
     border-radius: 5px;
     box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.15);
-    background: #3aa856;
+    background: #1a1a1a;
     padding: 0;
 } 
+.card2 .btnFav_select {
+    background: #3aa856;
+
+}
 .card2 .btnFav,
 .btnFav span {
     transition: 200ms;
