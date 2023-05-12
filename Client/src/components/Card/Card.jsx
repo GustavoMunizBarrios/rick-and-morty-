@@ -53,7 +53,22 @@ function Card({ id, name, species, gender, image, onClose, addFav, removeFav, my
                <h2>{status}</h2>
                <h2>{origin}</h2> */
             }
-            <button onClick={handleFavorite}>{isFav ? '❤️' : '🤍' }</button>
+            <button onClick={handleFavorite} className={style.btnFav_main}>
+            { //randerizado condicional
+               isFav 
+               ? ( //isfav en true, entonces: 
+                  <button  className={style.btnFav}>
+                     <svg className={style.btnFav_tick} viewBox="0 0 24.00 24.00" xmlns="http://www.w3.org/2000/svg" fill="#ffffff"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <title></title> <g id="Complete"> <g id="tick"> <polyline fill="none" points="3.7 14.3 9.6 19 20.3 5" stroke="#fafafa" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.4"></polyline> </g> </g> </g></svg>
+                  </button>
+               ) : ( //isfav en false, entonces:
+                  <button className={style.btnFav}>
+                     <span className={style.btnFav_text}>Add to Fav</span>
+                     <span className={style.btnFav_icon}>
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="#ffffff"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <title></title> <g id="Complete"> <g data-name="add" id="add-2"> <g> <line fill="none" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" x1="12" x2="12" y1="19" y2="5"></line> <line fill="none" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" x1="5" x2="19" y1="12" y2="12"></line> </g> </g> </g> </g></svg>
+                     </span>
+                  </button>
+               )
+            }</button>
          </div> 
       </div>
    );
