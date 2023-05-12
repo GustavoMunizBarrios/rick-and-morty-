@@ -1,5 +1,5 @@
 // Controlador con Express
-const URL ='https://rickandmortyapi.com/api/character';
+const URL ='https://rickandmortyapi.com/api/character'; //URLde la api rick and morty
 const axios = require('axios');
 
 //La función recibe solicitudes HTTP GET y se encarga de buscar un personaje por su identificador (ID) en la API
