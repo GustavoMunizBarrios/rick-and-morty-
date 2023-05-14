@@ -2,17 +2,28 @@
 .login {
     background-color: #262c3a;
     height: 100vh;
+/*     max-height: 100%;
+    max-width: 100%; */
     position: relative;
+    overflow: hidden;
+    
 /*     display: flex;
     justify-content: center;
     align-items: center; */
+}
+.imgLogo{
+    width: 1100px;
+    position: absolute;
+    left: 25%;
+    top: 10%;
+    z-index: 3;
 }
 /* ****************************************************** */
  /**************** DISEÑO CARD FORM *********************/
 /* ****************************************************** */
 .login .card {
     position: absolute;
-    top: 30%;
+    top: 50%;
     left: 42%;
     z-index: 2;
 
@@ -185,10 +196,10 @@
 /* ****************************************************** */
 .login .img {
     position: absolute;
-    top: 12%;
-    left: 33%;
-    width: 700px;
-    animation: rotateAnimation 50s infinite linear;
+    top: 7%;
+    left: 30%;
+    width: 800px;
+    animation: rotateAnimation 100s infinite linear;
 }
 @keyframes rotateAnimation {
     0% {

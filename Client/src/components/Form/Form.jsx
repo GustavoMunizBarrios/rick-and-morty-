@@ -2,6 +2,7 @@ import { useState } from "react"
 import validation from "../validation/validation"
 import style from "./Form.module.css";
 import portalImage from "./portal_download-removebg.png"
+import logoImage from "./Logo_rickandmorty2.png"
 
 
 const Form = ({login}) => {
@@ -28,6 +29,7 @@ const Form = ({login}) => {
     }
     return(
         <div className={style.login}>
+            <img className={style.imgLogo} src={logoImage} alt="logotipo rick and morty"/>
             <form onSubmit={handleSubmit} className={style.card}>
                 <div className={style.card2}>
                     {/* <p>Login</p> */}
