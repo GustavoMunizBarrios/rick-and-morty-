@@ -28,18 +28,26 @@ const Form = ({login}) => {
     }
     return(
         <div className={style.login}>
-            <form onSubmit={handleSubmit} className={style.form}>
+            <form onSubmit={handleSubmit} className={style.card}>
+                <div className={style.card2}>
+                    {/* <p>Login</p> */}
 
-                <label htmlFor="email">Email: </label>
-                <input type="text" name='email' value={userData.email} onChange={handleChange}/>
-                {errors.email && <p>{errors.email}</p>} {/* si existe errors.amail entonces muestra el mensaje de errors.email */}
+                    <div className={style.form__group}>
+                        <input type="input" onChange={handleChange}  className={style.form__field} placeholder='email' name="email" value={userData.email} />
+                        <label htmlFor="email" className={style.form__label} >Email: </label>
+                        {errors.email && <p className={style.form__error}>{errors.email}</p>} {/* si existe errors.amail entonces muestra el mensaje de errors.email */}
+                    </div>
+                    {/* <br /> */}
+                    <div  className={style.form__group}>
+                        <input type="input" onChange={handleChange}  className={style.form__field} placeholder= "password" name="password" value={userData.password} />
+                        <label htmlFor="password" className={style.form__label} >Password</label>
+                        {errors.password && <p className={style.form__error}>{errors.password}</p>} {/* si existe errors.password entonces muestra el mensaje de errors.password */}
+                    </div>
 
-                <br/> <br />
-                <label htmlFor="password">Password</label>
-                <input type="text" name = "password" value={userData.password} onChange={handleChange}/>
-                {errors.password && <p>{errors.password}</p>} {/* si existe errors.password entonces muestra el mensaje de errors.password */}
+                    <button className={style.form__login}>Login</button>
 
-                <button>submit</button>
+                </div>
+
 
             </form>
             <img className={style.img} src={portalImage} alt="portal rick and morty" />
