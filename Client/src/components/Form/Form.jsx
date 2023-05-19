@@ -3,7 +3,8 @@ import validation from "../validation/validation"
 import style from "./Form.module.css";
 import portalImage from "./portal_download-removebg.png"
 import logoImage from "./Logo_rickandmorty2.png"
-
+import rickImage from "./rick_sin_fondo.png"
+import mortyImage from "./morty2.png"
 
 const Form = ({login}) => {
     const [errors, setErrors] = useState({})
@@ -49,10 +50,10 @@ const Form = ({login}) => {
                     <button className={style.form__login}>Login</button>
 
                 </div>
-
-
             </form>
-            <img className={style.img} src={portalImage} alt="portal rick and morty" />
+            <img className={style.img} src={portalImage} alt="portal rick and morty"/>
+            <img className={style.imgRick} src={rickImage} alt="Rick character"/>
+            <img className={style.imgMorty} src={mortyImage} alt="Morty character"/>
         </div>
     )
 }

@@ -209,3 +209,19 @@
       transform: rotate(360deg);
     }
 }
+/* ****************************************************** */
+ /**************** IMAGEN Rick y Morty  *********************/
+/* ****************************************************** */
+
+.imgRick {
+    width: 360px;
+    position: absolute;
+    top: 38%;
+    left: 78%;
+}
+.imgMorty{
+    width: 450px;
+    position: absolute;
+    top: 61%;
+    left: 5%;
+}
