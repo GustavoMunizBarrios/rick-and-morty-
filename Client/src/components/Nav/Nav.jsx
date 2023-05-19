@@ -13,11 +13,11 @@ const Nav = ({ onSearch,  setAccess }) => {
         <nav className={style.nav}>
 
             <button className={style.home}>
-                <Link to='/home' >HOME</Link>
+                <Link to='/home' >Home</Link>
             </button>
 
             <button className={style.about}>
-                <Link to='/about' >ABOUT</Link>
+                <Link to='/about' >About</Link>
             </button>
 
             <button className={style.favorites}>
