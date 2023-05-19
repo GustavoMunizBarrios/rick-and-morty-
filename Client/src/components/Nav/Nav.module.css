@@ -1,3 +1,31 @@
-.home{
+.nav{
     background-color: #262c3a;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    /* grid-template-rows: repeat(3, 1fr); */
+    grid-auto-rows: minmax(100px, auto);
+    grid-template-areas: 
+    "home about favorites ....... logout"
+    "....... logo logo logo ......."
+    "....... search search search .......";
+}
+
+.nav .home {
+    grid-area: home;
+}
+.nav .about {
+    grid-area: about;
+}
+.nav .favorites {
+    grid-area: favorites;
+}
+.nav .logout {
+    grid-area: logout;
+}
+.nav .imgLogo {
+    width: 400px;
+    grid-area: logo;
+}
+.nav .searchBar {
+    grid-area: search;
 }
