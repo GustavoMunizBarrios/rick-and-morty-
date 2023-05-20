@@ -8,7 +8,19 @@
     "home about favorites ....... logout"
     "....... ...... logo ...... ......."
     "....... search search search .......";
+    grid-row-gap: 1px; /* Espacio entre filas */
+    position: relative; 
 }
+.nav::after {
+    content: "";
+    position: absolute;
+    bottom: calc(100% + 1px); /* Posiciona el pseudo-elemento debajo de la primera fila */
+    left: -120%;
+    width: 340%;
+    height: 1px; /* Altura de la línea */
+    background-color: white; /* Color de la línea */
+    grid-area: logo; /* Asegura que el pseudo-elemento esté en la misma área que el elemento "logo" */
+  }
 .nav a {
     color: inherit;
     text-decoration: none;
