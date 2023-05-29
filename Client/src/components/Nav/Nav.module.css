@@ -2,8 +2,10 @@
     background-color: #262c3a;
     display: grid;
     grid-template-columns: repeat(5, 1fr);
+    justify-items: center;
+    align-items: center;
     /* grid-template-rows: repeat(3, 1fr); */
-    grid-auto-rows: minmax(100px, auto);
+    grid-auto-rows: minmax(127px, auto);
     grid-template-areas: 
     "home about favorites ....... logout"
     "....... ...... logo ...... ......."
@@ -15,10 +17,10 @@
     content: "";
     position: absolute;
     bottom: calc(100% + 1px); /* Posiciona el pseudo-elemento debajo de la primera fila */
-    left: -120%;
-    width: 340%;
+    left: -135%;
+    width: 360%;
     height: 1px; /* Altura de la línea */
-    background-color: white; /* Color de la línea */
+    background-color: #596787; /* Color de la línea */
     grid-area: logo; /* Asegura que el pseudo-elemento esté en la misma área que el elemento "logo" */
   }
 .nav a {
@@ -42,7 +44,6 @@
     border-radius: 0.3em;
     font-size: 18px;
     font-weight: bold;
-    margin-top: 19px;
     cursor: pointer;
 }
 .home::before {
@@ -93,7 +94,6 @@
     border-radius: 0.3em;
     font-size: 18px;
     font-weight: bold;
-    margin-top: 19px;
     cursor: pointer;
 }
 .about::before {
@@ -140,7 +140,6 @@
     border-radius: 0.3em;
     font-size: 18px;
     font-weight: bold;
-    margin-top: 19px;
     cursor: pointer;
 }
 .favorites::before {
@@ -188,7 +187,6 @@
     border-radius: 0.3em;
     font-size: 18px;
     font-weight: bold;
-    margin-top: 19px;
     cursor: pointer;
 }
 .logout::before {
@@ -225,6 +223,7 @@
 .nav .imgLogo {
     width: 500px;
     grid-area: logo;
+    margin-top: 50px;
 }
 .nav .searchBar {
     grid-area: search;
