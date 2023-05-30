@@ -12,9 +12,9 @@ export default function SearchBar({ onSearch }) {
       <div className={style.form}>
          <div className={style.form__group}>
             <input type='search' onChange={handleChange} value={id} className={style.form__field} placeholder='search' name="search"/> {/* La propiedad value me permite tener el mismo valor que id */ }
-            <label htmlFor="search" className={style.form__label} >Buscar</label>
+            <label htmlFor="search" className={style.form__label} >Search</label>
          </div>
-         <button className={style.form__btn} onClick={() =>{onSearch(id); setId('')}}>Agregar</button>
+         <button className={style.form__btn} onClick={() =>{onSearch(id); setId('')}}>Search</button>
       </div>
    );
 }

@@ -5,7 +5,7 @@
     justify-items: center;
     align-items: center;
     /* grid-template-rows: repeat(3, 1fr); */
-    grid-auto-rows: minmax(127px, auto);
+    grid-auto-rows: minmax(95px, auto);
     grid-template-areas: 
     "home about favorites ....... logout"
     "....... ...... logo ...... ......."
@@ -28,197 +28,68 @@
     text-decoration: none;
 }
 /* ****************************************************** */
- /**************** BOTÓN DE HOME *********************/
+ /**************** ESTILOS COMUNES DE BOTONES *********************/
+/* ****************************************************** */
+.btnComun {
+    width: 8em;
+    position: relative;
+    height: 2.6em;
+    border: 3px solid #1e8f89;
+    outline: none;
+    background-color: transparent;
+    color: #dddddd;
+    transition: 1s;
+    border-radius: 0.3em;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+.btnComun::before {
+    content: "";
+    position: absolute;
+    top: 90%;
+    left: 6%;
+    width: 88%;
+    height: 40%;
+    background-color: #262c3a;
+    transition: 0.5s;
+    transform-origin: center;
+}
+.btnComun::after{
+    content: "";
+    position: absolute;
+    top: -10px;
+    left: 6%;
+    width: 88%;
+    height: 40%;
+    background-color: #262c3a;
+    transition: 0.5s;
+    transform-origin: center;
+}
+.btnComun:hover::after {
+    transform: scale(0);
+}
+.btnComun:hover::before {
+    transform: scale(0);
+}
+/* ****************************************************** */
+ /**************** ESTILOS PARTICULARES DE BOTONES *********************/
 /* ****************************************************** */
 .nav .home {
     grid-area: home;
-
-    width: 8em;
-    position: relative;
-    height: 2.6em;
-    border: 3px solid #1e8f89;
-    outline: none;
-    background-color: transparent;
-    color: #c2dd9c;
-    transition: 1s;
-    border-radius: 0.3em;
-    font-size: 18px;
-    font-weight: bold;
-    cursor: pointer;
 }
-.home::before {
-    content: "";
-    position: absolute;
-    top: 90%;
-    left: 6%;
-    width: 88%;
-    height: 40%;
-    background-color: #262c3a;
-    transition: 0.5s;
-    transform-origin: center;
-}
-.home::after{
-    content: "";
-    position: absolute;
-    top: -10px;
-    left: 6%;
-    width: 88%;
-    height: 40%;
-    background-color: #262c3a;
-    transition: 0.5s;
-    transform-origin: center;
-}
-.home:hover::after{
-    transform: scale(0);
-}
-.home:hover::before{
-    transform: scale(0);
-} 
-/* .home:hover {
-    box-shadow: inset 0px 0px 25px #2a9244;
-} */
-/* ****************************************************** */
- /**************** BOTÓN DE ABOUT *********************/
-/* ****************************************************** */
 .nav .about {
     grid-area: about;
-    
-    width: 8em;
-    position: relative;
-    height: 2.6em;
-    border: 3px solid #1e8f89;
-    outline: none;
-    background-color: transparent;
-    color: #c2dd9c;
-    transition: 1s;
-    border-radius: 0.3em;
-    font-size: 18px;
-    font-weight: bold;
-    cursor: pointer;
 }
-.about::before {
-    content: "";
-    position: absolute;
-    top: 90%;
-    left: 6%;
-    width: 88%;
-    height: 40%;
-    background-color: #262c3a;
-    transition: 0.5s;
-    transform-origin: center;
-}
-.about::after{
-    content: "";
-    position: absolute;
-    top: -10px;
-    left: 6%;
-    width: 88%;
-    height: 40%;
-    background-color: #262c3a;
-    transition: 0.5s;
-    transform-origin: center;
-}
-.about:hover::after{
-    transform: scale(0);
-}
-.about:hover::before{
-    transform: scale(0);
-} 
-/* ****************************************************** */
- /**************** BOTÓN DE FAVORITES *********************/
-/* ****************************************************** */
 .nav .favorites {
     grid-area: favorites;
-    width: 8em;
-    position: relative;
-    height: 2.6em;
-    border: 3px solid #1e8f89;
-    outline: none;
-    background-color: transparent;
-    color: #c2dd9c;
-    transition: 1s;
-    border-radius: 0.3em;
-    font-size: 18px;
-    font-weight: bold;
-    cursor: pointer;
 }
-.favorites::before {
-    content: "";
-    position: absolute;
-    top: 90%;
-    left: 6%;
-    width: 88%;
-    height: 40%;
-    background-color: #262c3a;
-    transition: 0.5s;
-    transform-origin: center;
-}
-.favorites::after{
-    content: "";
-    position: absolute;
-    top: -10px;
-    left: 6%;
-    width: 88%;
-    height: 40%;
-    background-color: #262c3a;
-    transition: 0.5s;
-    transform-origin: center;
-}
-.favorites:hover::after{
-    transform: scale(0);
-}
-.favorites:hover::before{
-    transform: scale(0);
-} 
-/* ****************************************************** */
- /**************** BOTÓN DE Log Out *********************/
-/* ****************************************************** */
 .nav .logout {
     grid-area: logout;
-        
-    width: 8em;
-    position: relative;
-    height: 2.6em;
-    border: 3px solid #1e8f89;
-    outline: none;
-    background-color: transparent;
-    color: #c2dd9c;
-    transition: 1s;
-    border-radius: 0.3em;
-    font-size: 18px;
-    font-weight: bold;
-    cursor: pointer;
 }
-.logout::before {
-    content: "";
-    position: absolute;
-    top: 90%;
-    left: 6%;
-    width: 88%;
-    height: 40%;
-    background-color: #262c3a;
-    transition: 0.5s;
-    transform-origin: center;
-}
-.logout::after{
-    content: "";
-    position: absolute;
-    top: -10px;
-    left: 6%;
-    width: 88%;
-    height: 40%;
-    background-color: #262c3a;
-    transition: 0.5s;
-    transform-origin: center;
-}
-.logout:hover::after{
-    transform: scale(0);
-}
-.logout:hover::before{
-    transform: scale(0);
-} 
-
-
+/* ****************************************************** */
+ /**************** ESTILOS IMAGEN *********************/
+/* ****************************************************** */
 
 .nav .imgLogo {
     width: 500px;

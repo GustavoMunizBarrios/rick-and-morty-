@@ -12,19 +12,19 @@ const Nav = ({ onSearch,  setAccess }) => {
     return (
         <nav className={style.nav}>
 
-            <button className={style.home}>
+            <button className={`${style.btnComun} ${style.home}`}>
                 <Link to='/home' >Home</Link>
             </button>
 
-            <button className={style.about}>
+            <button className={`${style.btnComun} ${style.about}`}>
                 <Link to='/about' >About</Link>
             </button>
-
-            <button className={style.favorites}>
+            
+            <button className={`${style.btnComun} ${style.favorites}`}>
                 <Link to='/favorites' >Favorites</Link>
             </button>
-
-            <button className={style.logout} onClick={handlelogOut}>Log Out</button>
+            
+            <button className={`${style.btnComun} ${style.logout}`} onClick={handlelogOut}>Log Out</button>
 
             <img className={style.imgLogo} src={logoImage} alt="logotipo rick and morty"/>
 
