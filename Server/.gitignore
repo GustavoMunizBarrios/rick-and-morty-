@@ -18,6 +18,7 @@ _cache
 /_src/localStyles
 
 # misc
+.env
 .DS_Store
 .env.local
 .env.development.local
