@@ -23,12 +23,12 @@ UserModel(sequelize) //crea la tabla User con la instancia de sequelize
 // ¡Relaciona tus modelos aquí abajo!
 const { User, Favorite } = sequelize.models; //destructuring de los modelos/tablas User y Favorite extraidos de sequelize.models
 //Un usuario (User) puede tener muchos personajes favoritos (Favorites)
-User.belongsToMany(Favorite, {through:'user_favorite'}) //Se generara una tabla intermedia llamada 'user_favorites'
+User.belongsToMany(Favorite, {through:'user_favorite'}) //Se generara una tabla intermedia llamada 'user_favorite'
 //Un personaje puede ser el favorito (Favorites) de muchos usuarios (User)
 Favorite.belongsToMany(User, {through:'user_favorite'})
 
 module.exports = {
-   // User,
-   // Favorite,
-   conn: sequelize,
+   User,
+   Favorite,
+   conn: sequelize, //exporta la instancia de sequelize para sincronizar/conectar con nuestra DB
 };
