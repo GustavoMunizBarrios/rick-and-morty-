@@ -1,17 +1,16 @@
 require('dotenv').config();
 const { Sequelize } = require('sequelize');
-const { DB_USER, DB_PASSWORD, DB_HOST } = process.env;
-const FavoriteModel = require('./models/Favorite.js');// importamos el modelo Favorite y lo guardamos en una constante llamada FavoriteModel
-const UserModel = require('./models/User.js');// importamos el modelo User y lo guardamos en una constante llamada UserModel
+const { DB_USER, DB_PASSWORD, DB_HOST, DB_NAME } = process.env;
+const FavoriteModel = require('./models/Favorite');// importamos el modelo Favorite y lo guardamos en una constante llamada FavoriteModel
+const UserModel = require('./models/User');// importamos el modelo User y lo guardamos en una constante llamada UserModel
 
 // EJERCICIO 03
 // A la instancia de Sequelize le falta la URL de conexión. ¡Agrégala!
 // Recuerda pasarle la información de tu archivo '.env'.
 
 // URL ----> postgres://DB_USER:DB_PASSWORD@DB_HOST/rickandmorty
-const sequelize = new Sequelize(`postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/${DB_NAME}`,
-   // URL
-   { logging: false, native: false }//logging: false dejaba de imprimir en la consola, 
+const sequelize = new Sequelize(`postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/rickandmorty`,
+   { logging: false, native: false }//logging: false dejaba de imprimir en la consola,
 );
 
 // EJERCICIO 05
@@ -23,9 +22,9 @@ UserModel(sequelize) //crea la tabla User con la instancia de sequelize
 // ¡Relaciona tus modelos aquí abajo!
 const { User, Favorite } = sequelize.models; //destructuring de los modelos/tablas User y Favorite extraidos de sequelize.models
 //Un usuario (User) puede tener muchos personajes favoritos (Favorites)
-User.belongsToMany(Favorite, {through:'user_favorite'}) //Se generara una tabla intermedia llamada 'user_favorite'
+User.belongsToMany(Favorite, {through:'user_favorite'}); //Se generara una tabla intermedia llamada 'user_favorite'
 //Un personaje puede ser el favorito (Favorites) de muchos usuarios (User)
-Favorite.belongsToMany(User, {through:'user_favorite'})
+Favorite.belongsToMany(User, {through:'user_favorite'});
 
 module.exports = {
    User,
