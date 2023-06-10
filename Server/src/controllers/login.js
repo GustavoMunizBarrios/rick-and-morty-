@@ -1,4 +1,4 @@
-const {User} = require('../DB_connection') //importa la tabla User del archivo DB_connection.js
+const {User} = require('../DB_connection') //importa la tabla/modelo User del archivo DB_connection.js
 
 module.exports = async (req, res)=>{
     try {
