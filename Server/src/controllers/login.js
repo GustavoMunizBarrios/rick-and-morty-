@@ -2,6 +2,8 @@ const {User} = require('../DB_connection') //importa la tabla/modelo User del ar
 
 module.exports = async (req, res)=>{
     try {
+        //--------  IMPORTANTE !! -------
+        //Tanto email como password debe ser mandado por body en vez de query a traves de una solicitud HTTP POST
         const {email, password} = req.query
 
         if(!email || !password) return res.status(400).send("Faltan datos")
