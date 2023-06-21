@@ -1,4 +1,4 @@
-
+//Este archivo importa express e inicializa un nuevo servidor, Tambien agrega middlewares.
 //---------------------- Middleware ----------------------------
 const express = require('express'); // Importa el módulo 'express' que proporciona funcionalidades para crear y configurar el servidor.
 // Crea una instancia del servidor utilizando el módulo express. 

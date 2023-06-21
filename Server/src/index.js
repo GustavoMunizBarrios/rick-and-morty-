@@ -3,7 +3,7 @@ exporta ese servidor para que pueda ser utilizado en otros archivos.  */
 
 const server =require('./app')// Importa el módulo 'app' desde el archivo app.js y lo asigna a la variable server
 const PORT = 3001 //Define el número de puerto en el que se ejecutará el servidor
-const {conn} = require('./DB_connection') //importa la estancia de sequelize (en este caso se llama conn)
+const {conn} = require('./DB_connection') //importa la instancia de sequelize (en este caso se llama conn)
 
 //sincronizamos/conectamos la instancia de sequelize con nuestra DB
 //Cuando force esta en false se mantiene la persistencia de datos, incluso cuando se cierre el servidor.

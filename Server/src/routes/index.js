@@ -1,7 +1,8 @@
 //Importación de todos los controladores 
 const {login} = require('../controllers/login')
 const {getCharById} =require('../controllers/getCharById')
-const {postFav, deleteFav} = require('../controllers/handleFavorites')
+const {postFav} = require('../controllers/postFav')
+const {deleteFav} = require('../controllers/deleteFav')
 
 const router = require('express').Router();
 
