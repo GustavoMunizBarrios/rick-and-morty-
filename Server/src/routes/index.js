@@ -2,10 +2,11 @@
 en una determinada via de acceso con un método de solicitud HTTP específico */
 
 //Importación de todos los controladores 
-const {login} = require('../controllers/login')
 const {getCharById} =require('../controllers/getCharById')
-const {postFav} = require('../controllers/postFav')
-const {deleteFav} = require('../controllers/deleteFav')
+const login = require('../controllers/login')
+const postUser = require('../controllers/postUser')
+const postFav = require('../controllers/postFav')
+const deleteFav = require('../controllers/deleteFav')
 
 const router = require('express').Router();
 
@@ -17,6 +18,7 @@ router.get('/character/:id', (req, res) => { // ('ruta', (req, res) => {} )
 })
 
 router.get('/login', login) // Esta es la forma corta de escribirlo 
+router.post('/login', postUser) // Esta es la forma corta de escribirlo 
 
 router.post('/fav', (req, res) => {
     postFav(req,res);
