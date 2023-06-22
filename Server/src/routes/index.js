@@ -1,3 +1,6 @@
+/* La creación de rutas sirve para determinar como una aplicación responde a la solicitud de un cliente 
+en una determinada via de acceso con un método de solicitud HTTP específico */
+
 //Importación de todos los controladores 
 const {login} = require('../controllers/login')
 const {getCharById} =require('../controllers/getCharById')
