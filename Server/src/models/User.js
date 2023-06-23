@@ -5,10 +5,11 @@ module.exports = (sequelize) => { //recibe por parámetro a la instancia de sequ
         id: {
             type: DataTypes.INTEGER,
             allowNull: false,
-            primaryKey: true
+            primaryKey: true,
+            autoIncrement: true
         },
         email: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.STRING,
             allowNull: false,
             isEmail: true //validar que una cadena de caracteres sea un correo electrónico válido
         },

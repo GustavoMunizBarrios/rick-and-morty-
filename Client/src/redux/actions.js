@@ -1,5 +1,5 @@
-import { ADD_FAV, REMOVE_FAV, FILTER, ORDER } from './action-types';
 import axios from 'axios';
+import { ADD_FAV, REMOVE_FAV, FILTER, ORDER } from './action-types';
 
 //Esta función recibe un personaje por parámetro. Retorna un payload que es igual al personaje
 export const addFav = (character) => {

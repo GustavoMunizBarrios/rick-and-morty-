@@ -9,7 +9,7 @@ module.exports = (sequelize) => { //recibe por parámetro a la instancia de sequ
             type: DataTypes.INTEGER,
             allowNull: false,
             primaryKey: true,
-            // autoIncrement: true
+            autoIncrement: true
         },
         name: {
             type: DataTypes.STRING,

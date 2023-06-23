@@ -8,7 +8,7 @@ const {conn} = require('./DB_connection') //importa la instancia de sequelize (e
 //sincronizamos/conectamos la instancia de sequelize con nuestra DB
 //Cuando force esta en false se mantiene la persistencia de datos, incluso cuando se cierre el servidor.
 //Cuando esta en true los datos se borran si el servidor se cierra.
-conn.sync({force:true})
+conn.sync({force:false})
 
 //Inicia el servidor y lo pone en escucha en el puerto 3001, cuando se recibe una solicitud en ese puerto, se ejecutará el console.log
 server.listen(PORT, () =>  console.log(`Server raised in port: ${PORT}`));
