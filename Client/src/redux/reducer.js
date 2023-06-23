@@ -16,7 +16,7 @@ const reducer = (state = initialState, { type, payload }) => { //el segundo par√
                 myFavorites: payload, //El array myFavorites ser√° igual al estado myfavorites concatenando el
                                                              // payload que es igual a character (al personaje), recordemos que
                                                              // character es un objeto con las propiedades del personaje
-                allCharactersFav: payload
+                allCharactersFav: payload,
             }
 
         case REMOVE_FAV: // Elimina a un personaje del estado "myFavorites" a partir de un id que recibas por payload

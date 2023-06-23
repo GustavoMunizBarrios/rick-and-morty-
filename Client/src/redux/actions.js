@@ -3,7 +3,7 @@ import { ADD_FAV, REMOVE_FAV, FILTER, ORDER } from './action-types';
 
 //Esta función recibe un personaje por parámetro. Retorna un payload que es igual al personaje
 export const addFav = (character) => {
-    const endpoint = 'http://localhost:3001/rickandmorty/fav'; //guarda la URL de nuestro servidor
+    const endpoint = "http://localhost:3001/rickandmorty/fav"; //guarda la URL de nuestro servidor
     return async (dispatch) => { //retorna una función haciendo una petición al servidor
       try {
          const {data} = await axios.post(endpoint, character) // (ruta, el objeto character) character lo recibe por body nuestro servidor.
