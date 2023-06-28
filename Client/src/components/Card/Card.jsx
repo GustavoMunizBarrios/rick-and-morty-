@@ -73,7 +73,7 @@ function Card(props) {
                      </span>
                   </button>
                )
-            }</button>
+            }</button> 
          </div> 
       </div>
    );

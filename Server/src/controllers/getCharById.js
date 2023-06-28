@@ -4,9 +4,9 @@ const axios = require('axios');
 
 //La función recibe solicitudes HTTP GET y se encarga de buscar un personaje por su identificador (ID) en la API
 const getCharById = async (req, res) => {  //Async va siempre antes de la definición de la función, indico que la función es asincrona
+    const {id} = req.params; // destructuring del objeto params para obtener el id
     try {
-        const {id} = req.params; // destructuring del objeto params para obtener el id
-        const {data} = await axios(`${URL}/${id}`) //destructuring de la api con el id (para obtener el character)
+        const {data} = await axios.get(`${URL}/${id}`) //destructuring de la api con el id (para obtener el character)
         // Petición a la API a partir del ID que recibimos por params.
         //Devuelve un JSON con las propiedades status, name, species, origin, image, gender.
          //recibimos a data con destructuring
@@ -14,12 +14,12 @@ const getCharById = async (req, res) => {  //Async va siempre antes de la defini
         //si tengo un nombre significa que tengo personaje (que existe) entonces:
         const character = { // Crea un objeto con las propiedades del personaje.
             id:data.id, 
+            status:data.status,
             name:data.name,
-            species:data.species,
             origin:data.origin,
+            species:data.species,
             image:data.image,
             gender:data.gender,
-            status:data.status
         }
         return res.status(200).json(character) // Regresa el character 
         
