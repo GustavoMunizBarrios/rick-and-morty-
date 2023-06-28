@@ -35,6 +35,9 @@ function App() {
          console.log(error.message);
       }
    }
+   const logOut = () => {
+      setAccess(false);
+   };
 
    useEffect(() => { // cada vez que cambie access se ejecuta lo que este en useEffect
       !access && navigate('/') // si access esta en false entonces no va a llevar a otra ruta que no sea /
@@ -70,13 +73,13 @@ function App() {
       <div className='App'>
          {
             //pathname me dice la url del usuario, si esta es diferente de '/' entonces randeriza a Nav
-            location.pathname !== '/' && <Nav onSearch={onSearch} />   
+            location.pathname !== '/' && <Nav onSearch={onSearch} setAcces={setAccess} logOut={logOut}/>   
          }
           {/* le pasamos por propiedad a Nav la función onSearch */}
 
          {/* Con Route definimos las rutas y que se ve a mostrar en cada una de ellas, después con Link le mostramos a que path se va a dirigir */}
          <Routes>
-            <Route path='/' element={<Form login={login}  setAcces={setAccess}/>}/>
+            <Route path='/' element={<Form login={login}  setAcces={setAccess} />}/>
             <Route path='/home' element={ <Cards characters={characters} onClose={onClose}/> }/>
             <Route path='/about' element={<About/>} />
             <Route path='/detail/:id' element={<Detail/>} />

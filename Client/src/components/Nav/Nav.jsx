@@ -3,11 +3,7 @@ import { Link} from 'react-router-dom';
 import style from './Nav.module.css';
 import logoImage from '../Form/Logo_rickandmorty2.png';
 
-const Nav = ({ onSearch,  setAccess }) => {
-
-    const handlelogOut = () => {
-        setAccess(false);
-    }
+const Nav = ({ onSearch, logOut }) => {
 
     return (
         <nav className={style.nav}>
@@ -24,7 +20,7 @@ const Nav = ({ onSearch,  setAccess }) => {
                 <Link to='/favorites' >Favorites</Link>
             </button>
             
-            <button className={`${style.btnComun} ${style.logout}`} onClick={handlelogOut}>Log Out</button>
+            <button className={`${style.btnComun} ${style.logout}`} onClick={logOut}>Log Out</button>
 
             <img className={style.imgLogo} src={logoImage} alt="logotipo rick and morty"/>
 
