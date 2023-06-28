@@ -4,37 +4,42 @@ import {addFav, removeFav} from '../../redux/actions'
 import { connect } from 'react-redux';
 import { useState, useEffect } from 'react';
 
-function Card({ id, name, species, gender, image, onClose, addFav, removeFav, myFavorites }) {
-
+function Card(props) {
+   //const {pathname} = useLocation()
    const [isFav, setIsFav] = useState(false);
 
    const handleFavorite = () => {
+    
       if (isFav) {
-         setIsFav(false);
-         removeFav(id);
-      } else {
-         setIsFav(true);
-         addFav({id, name, species, gender, image, onClose}) //Aqui le paso todo el objeto del personaje, ya que es lo que espera el payload de addFav
+        setIsFav(!isFav);
+        props.removeFav(props.id);
+      } else if (!isFav) {
+        setIsFav(!isFav);
+        props.addFav(props); 
       }
-   }
+    };
    //useEffect permite ejecutar código después de que un componente se haya renderizado en la pantalla y cada vez que un 
    //estado cambia en el componente.
    //Este useEffect comprobará si el personaje que contiene la Card ya esta dentro de tus favoritos. En ese caso setteará el 
    //estado isFav en true
+
+   //recorre al estado global myFavorites que contiene el objeto de cada personaje
+   //si el id de ese personaje es igual al id que estamos recibiendo por props entonces:
+   //el estado isFav se settea a true
    useEffect(() => {
-      myFavorites.forEach((fav) => { //recorre al estado global myFavorites que contiene el objeto de cada personaje
-         if (fav.id === id) { //si el id de ese personaje es igual al id que estamos recibiendo por props entonces:
-            setIsFav(true);   //el estado isFav se settea a true
-         }
+      props.myFavorites.forEach((fav) => {
+        if (fav.id === props.id) {
+          setIsFav(true);
+        }
       });
-   }, [myFavorites]);
+    }, [props]);
 
    return (
       <div className={style.card}>
          <div className={style.card2}>
-            <img className={style.img} src={image} alt='' />
+            <img className={style.img} src={props.image} alt='' />
 
-            <button className={style.btnX} onClick={() => onClose(id)}>
+            <button className={style.btnX} onClick={() => props.onClose(props.id)}>
                <span className={style.btnX_text}>Remove</span>
                <span className={style.btnX_icon}>
                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
@@ -43,8 +48,8 @@ function Card({ id, name, species, gender, image, onClose, addFav, removeFav, my
                </span>
             </button>
 
-            <Link to={`/detail/${id}`}> {/* la ruta me va a dirigir a a /detail mas el id que le pasemos por parámetro a Card */}
-               <button className={style.btnName}>{name}</button>
+            <Link to={`/detail/${props.id}`}> {/* la ruta me va a dirigir a a /detail mas el id que le pasemos por parámetro a Card */}
+               <button className={style.btnName}>{props.name}</button>
             </Link>
 
             {
@@ -83,7 +88,7 @@ const mapStateToProps = (state) => { //recibe el estado global completo
 const mapDispatchToProps = (dispatch) => { //dispatach de las dos actions
     //necesitamos despachar siempre para obtener un objeto
    return {
-      addFav: (character) => {dispatch(addFav(character))}, // Aqui character es igual al objeto {id, name, species, gender, image} que le pasamos como props a addFav
+      addFav: (personaje) => {dispatch(addFav(personaje))}, // Aqui character es igual al objeto {id, name, species, gender, image} que le pasamos como props a addFav
       removeFav: (id) => {dispatch(removeFav(id))} // El que se despacha "removeFav(id)" es el que importo desde actions,
                                                  // y el que recibo por props en Card es el que retorna la función "removeFav:"
    }
