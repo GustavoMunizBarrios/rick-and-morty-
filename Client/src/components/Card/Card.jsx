@@ -4,7 +4,7 @@ import {addFav, removeFav} from '../../redux/actions'
 import { connect } from 'react-redux';
 import { useState, useEffect } from 'react';
 
-function Card({ id, name, species, gender, image, onClose, addFav, removeFav, myFavorites }) {
+function Card({ id, name, status, origin, species, gender, image, onClose, addFav, removeFav, myFavorites }) {
 
    const [isFav, setIsFav] = useState(false);
 
@@ -14,7 +14,7 @@ function Card({ id, name, species, gender, image, onClose, addFav, removeFav, my
          removeFav(id);
       } else {
          setIsFav(true);
-         addFav({id, name, species, gender, image, onClose}) //Aqui le paso todo el objeto del personaje, ya que es lo que espera el payload de addFav
+         addFav({id, name, status, origin, species, gender, image, onClose}) //Aqui le paso todo el objeto del personaje, ya que es lo que espera el payload de addFav
       }
    }
    //useEffect permite ejecutar código después de que un componente se haya renderizado en la pantalla y cada vez que un 

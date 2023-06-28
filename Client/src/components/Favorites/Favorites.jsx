@@ -37,9 +37,11 @@ const Favorites = ({myFavorites}) => { //estado global myFavorites por props
                             key={fav.id}
                             id={fav.id}
                             name={fav.name}
+                            image={fav.image}
+                            status={fav.status}
+                            origin={fav.origin.name}
                             species={fav.species}
                             gender={fav.gender}
-                            image={fav.image}
                             onClose={fav.onClose}
                         />
                     )

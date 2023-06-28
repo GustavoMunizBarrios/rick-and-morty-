@@ -34,7 +34,7 @@ module.exports = (sequelize) => { //recibe por parámetro a la instancia de sequ
         image: {
             type: DataTypes.STRING,
             allowNull: false
-        }
+        },
 
    }, 
    { timestamps: false })
