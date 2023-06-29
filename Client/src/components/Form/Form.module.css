@@ -225,3 +225,36 @@
     top: 61%;
     left: 5%;
 }
+/* ****************************************************** */
+ /**************** MEDIA QUERIES  *********************/
+/* ****************************************************** */
+@media (max-width: 1700px) {
+    /* Logo rick and morty */
+    .imgLogo{
+        width: 800px;
+        position: absolute;
+        left: 25%;
+        top: 10%;
+        z-index: 3;
+    }
+    /* Imagen portal */
+    .login .img {
+        left: 28%;
+        width: 600px;
+    }
+    /* Imagen Rick */
+    .imgRick {
+        width: 260px;
+        top: 42%;
+    }
+    /* Imagen Morty */
+    .imgMorty{
+        width: 325px;
+        top: 62%;
+        left: 3%;
+    }
+    /* Card de login */
+    .login .card {
+        left: 38%;
+    } 
+}
