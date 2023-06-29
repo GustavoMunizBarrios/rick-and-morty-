@@ -42,7 +42,7 @@ const Form = ({login}) => {
                     </div>
                     {/* <br /> */}
                     <div  className={style.form__group}>
-                        <input type="input" onChange={handleChange}  className={style.form__field} placeholder= "password" name="password" value={userData.password} />
+                        <input type="password" onChange={handleChange}  className={style.form__field} placeholder= "password" name="password" value={userData.password} />
                         <label htmlFor="password" className={style.form__label} >Password</label>
                         {errors.password && <p className={style.form__error}>{errors.password}</p>} {/* si existe errors.password entonces muestra el mensaje de errors.password */}
                     </div>
