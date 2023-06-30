@@ -1,4 +1,5 @@
 import Card from '../Card/Card';
+import style from "./Favorites.module.css";
 import { connect, useDispatch } from 'react-redux';
 import { filterCards, orderCards } from '../../redux/actions';
 import { useState } from 'react';
@@ -17,36 +18,44 @@ const Favorites = ({myFavorites}) => { //estado global myFavorites por props
 
     return (
         <div>
-            <select onChange={handleOrder}>
-                <option value="A">Ascendente</option>
-                <option value="D">Descendente</option>
-            </select>
+            <div  className={style.main_select}>
+                <div className={`${style.select} ${style.select01}`}>
+                    <select onChange={handleOrder}>
+                        <option value="A">Ascendente</option>
+                        <option value="D">Descendente</option>
+                    </select>
+                </div>
 
-            <select onChange={handleFilter}>
-                <option value="Male" >Male</option>
-                <option value="Female">Female</option>
-                <option value="Genderless">Genderless</option>
-                <option value="unknown">unknown</option>
-                <option value="allCharacters">All Characters</option>
-            </select>
+                <div className={`${style.select} ${style.select02}`}>
+                    <select onChange={handleFilter}>
+                        <option value="Male" >Male</option>
+                        <option value="Female">Female</option>
+                        <option value="Genderless">Genderless</option>
+                        <option value="unknown">unknown</option>
+                        <option value="allCharacters">All Characters</option>
+                    </select>
+                </div>
+            </div>
 
-            {// mapeamos el estado myfavorites (que es un array) y lo randerizamos utilizando el componente Card
-                myFavorites?.map(fav => { // agregamos el condicional ? changing para evitar que se rompa 
-                    return(
-                        <Card
-                            key={fav.id}
-                            id={fav.id}
-                            name={fav.name}
-                            image={fav.image}
-                            status={fav.status}
-                            origin={fav.origin.name}
-                            species={fav.species}
-                            gender={fav.gender}
-                            onClose={fav.onClose}
-                        />
-                    )
-                })
-            }
+            <div className={style.main_cards}>
+                {// mapeamos el estado myfavorites (que es un array) y lo randerizamos utilizando el componente Card
+                    myFavorites?.map(fav => { // agregamos el condicional ? changing para evitar que se rompa 
+                        return(
+                            <Card
+                                key={fav.id}
+                                id={fav.id}
+                                name={fav.name}
+                                image={fav.image}
+                                status={fav.status}
+                                origin={fav.origin.name}
+                                species={fav.species}
+                                gender={fav.gender}
+                                onClose={fav.onClose}
+                            />
+                        )
+                    })
+                }
+            </div>
         </div>
     )
 }
