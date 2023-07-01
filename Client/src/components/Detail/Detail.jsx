@@ -1,4 +1,5 @@
 import axios from 'axios';
+import style from "./Detail.module.css"
 import { useParams } from 'react-router-dom'; // useParams nos permite obtener el valor de la variable de la ruta 
 import { useState, useEffect } from 'react';
 
@@ -35,13 +36,21 @@ const Detail = () => {
 
     return(
         /* Se randeriza condicionalmente cada propiedad de character */
-        <div>
-            <h2>{character?.name}</h2> {/* si hay información en character entonces extrae el valor de la propiedad name */}
-            <h2>{character?.status}</h2> {/* si hay información en character entonces extrae el valor de la propiedad status */}
-            <h2>{character?.species}</h2> {/* si hay información en character entonces extrae el valor de la propiedad species */}
-            <h2>{character?.gender}</h2> {/* si hay información en character entonces extrae el valor de la propiedad gender */}
-            <h2>{character?.origin?.name}</h2> {/* si hay información en character entonces extrae el valor de la propiedad origin.name */}
-            <img src={character?.image} alt={character?.name} /> {/* si hay información en character entonces extrae el valor de la propiedad image */}
+        <div className={style.container}>
+            <div className={style.card}>
+                <div className={style.card2}>
+                    <div className={style.card2_img}>
+                        <img src={character?.image} alt={character?.name} /> {/* si hay información en character entonces extrae el valor de la propiedad image */}
+                    </div>
+                    <div className={style.card2_txt}>
+                        <h2>Name: {character?.name}</h2> {/* si hay información en character entonces extrae el valor de la propiedad name */}
+                        <h2>Status: {character?.status}</h2> {/* si hay información en character entonces extrae el valor de la propiedad status */}
+                        <h2>Specie: {character?.species}</h2> {/* si hay información en character entonces extrae el valor de la propiedad species */}
+                        <h2>Gender: {character?.gender}</h2> {/* si hay información en character entonces extrae el valor de la propiedad gender */}
+                        <h2>Origin: {character?.origin?.name}</h2> {/* si hay información en character entonces extrae el valor de la propiedad origin.name */}
+                    </div>
+                </div>
+            </div>
         </div>
     )
 }

@@ -1,0 +1,64 @@
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* Ajusta el ancho y alto del contenedor según tus necesidades */
+    width: 100%;
+    height: 50%; /* Aquí se utiliza el 100% del alto de la ventana */
+}
+.card {
+    /* margin-left: 3.125rem;*/
+    /* display: grid; */
+    /* margin-bottom: 3.125rem;  */
+
+    width: 670px;
+    height: 350px;
+    background-image: linear-gradient(163deg, #00ff75 0%, #3700ff 100%);
+    border-radius: 20px;
+    transition: all .3s;
+}
+.card:hover {
+    box-shadow: 0px 0px 30px 1px rgba(0, 255, 117, 0.30);
+}
+   
+.card2 {
+    display: grid;
+    grid-template-columns: auto auto;
+    column-gap: 10px; /* Ajusta el espacio entre las columnas según tus necesidades */
+
+    width: 670px;
+    height: 350px;
+    background-color: #1a1a1a;
+    /* border-radius: 20px; */
+    transition: all .2s;
+    position: relative;
+
+    transform: scale(0.98) ;
+    border-radius: 20px;
+}
+.card2_img {
+    display: grid;
+    justify-items: center;
+    align-items: center;
+}
+.card2_txt{
+    display: grid;
+    align-items: center;
+    align-content: space-evenly;
+}
+.card2 img {
+    width: 90%;
+    margin-top: 0.625rem;
+    margin-bottom: 8px;
+    border-radius: 10px;
+}
+.card2 h2 {
+    margin: 0;
+    color: #dddddd;;
+}
+
+   
+/* .card2:hover {
+    transform: scale(0.98) ;
+    border-radius: 20px;
+} */
