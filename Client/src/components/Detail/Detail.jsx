@@ -37,6 +37,7 @@ const Detail = () => {
     return(
         /* Se randeriza condicionalmente cada propiedad de character */
         <div className={style.container}>
+            <div className={style.object}></div>
             <div className={style.card}>
                 <div className={style.card2}>
                     <div className={style.card2_img}>

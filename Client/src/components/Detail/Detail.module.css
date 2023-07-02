@@ -1,3 +1,11 @@
+.object{
+    top: 320px;
+    width: 600px;
+    height: 67px;
+    background-color: #262c3a;
+    position: absolute;
+    z-index: 5;
+}
 .container{
     display: flex;
     justify-content: center;
