@@ -258,3 +258,152 @@
         left: 38%;
     } 
 }
+@media (max-width:1200px) {
+    .imgLogo{
+        width: 650px;
+        left: 25%;
+        top: 10%;
+    }
+    /* Imagen portal */
+    .login .img {
+        left: 30%;
+        width: 500px;
+    }
+    /* Imagen Rick */
+    .imgRick {
+        width: 200px;
+        top: 52%;
+    }
+    .imgMorty{
+        width: 250px;
+        top: 69%;
+        left: 3%;
+    }
+    /* Card de login */
+    .login .card {
+        left: 37%;
+    } 
+}
+
+@media (max-width:1000px) {
+    .imgLogo{
+        width: 550px;
+        left: 25%;
+        top: 10%;
+    }
+    /* Imagen portal */
+    .login .img {
+        left: 30%;
+        width: 400px;
+    }
+    /* Imagen Rick */
+    .imgRick {
+        width: 150px;
+        top: 62%;
+    }
+    .imgMorty{
+        width: 187px;
+        top: 75%;
+        left: 3%;
+    }
+    /* Card de login */
+    .login .card {
+        top: 40%;
+        left: 35%;
+    } 
+}
+@media (max-width:800px) {
+    .imgLogo{
+        width: 450px;
+        left: 25%;
+        top: 10%;
+    }
+    /* Imagen portal */
+    .login .img {
+        left: 30%;
+        width: 350px;
+    }
+    /* Imagen Rick */
+    .imgRick {
+        width: 150px;
+        top: 62%;
+    }
+    /* Card de login */
+    .login .card {
+        top: 40%;
+        left: 32%;
+    } 
+}
+@media (max-width:430px) {
+    .imgLogo{
+        width: 370px;
+        left: 9%;
+        top: 4%;
+    }
+    /* Imagen portal */
+    .login .img {
+        left: -13%;
+        top: 62%;
+        width: 300px;
+    }
+    /* Imagen Rick */
+    .imgRick {
+        width: 160px;
+        top: 68%;
+        left: 64%
+    }
+    .imgMorty{
+        display: none;
+    }
+    /* Card de login */
+    .login .card {
+        top: 20%;
+        left: 14%;
+    } 
+}
+@media (max-width:410px) {
+    .imgLogo{
+        width: 330px;
+        left: 10%;
+        top: 4%;
+    }
+    /* Imagen portal */
+    .login .img {
+        left: -13%;
+        top: 62%;
+        width: 270px;
+    }
+    /* Imagen Rick */
+    .imgRick {
+        width: 140px;
+        top: 71%;
+        left: 64%
+    }
+    /* Card de login */
+    .login .card {
+        top: 20%;
+        left: 12%;
+    } 
+}
+@media (max-width:380px) {
+    .imgLogo{
+        width: 320px;
+    }
+    /* Imagen portal */
+    .login .img {
+        left: -13%;
+        top: 64%;
+        width: 250px;
+    }
+    /* Imagen Rick */
+    .imgRick {
+        width: 130px;
+        top: 71%;
+        left: 64%
+    }
+    /* Card de login */
+    .login .card {
+        top: 20%;
+        left: 10%;
+    } 
+}
