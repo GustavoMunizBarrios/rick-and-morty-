@@ -6,7 +6,7 @@ const UserModel = require('./models/User');// importamos el modelo User y lo gua
 
 // URL ----> postgres://DB_USER:DB_PASSWORD@DB_HOST/rickandmorty
 const sequelize = new Sequelize(`postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/rickandmorty`,
-   { logging: false, native: false }//logging: false dejaba de imprimir en la consola,
+   { logging: false, native: false}//logging: false dejaba de imprimir en la consola,
 );
 // Ejecución de la función de los modelos.
 FavoriteModel(sequelize) //crea la tabla Favorite con la instancia de sequelize 

@@ -100,3 +100,26 @@
     grid-area: search;
 }
 
+/* ****************************************************** */
+ /**************** Media Queries *********************/
+/* ****************************************************** */
+
+@media  screen and (max-width: 1500px) {
+    .nav::after {
+        left: -90%;
+        width: 278%;
+      }
+}
+@media  screen and (max-width: 1260px) {
+    .nav::after {
+        left: -70%;
+        width: 240%;
+      }
+}
+@media  screen and (max-width: 1100px) {
+
+    .nav::after {
+        left: -55%;
+        width: 210%;
+      }
+}
