@@ -229,6 +229,14 @@
         padding: 10px;
     }
 }
-
+@media screen and (max-width: 425px) {
+    .nav .imgLogo {
+        margin-top: 24px;
+        width: 360PX;
+    }
+    .menuIcon {
+        width: 40px;
+    }
+}
 
 
