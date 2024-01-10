@@ -43,6 +43,7 @@
     font-size: 16px;
     font-weight: bold;
     cursor: pointer;
+    display: block;
 }
 .btnComun::before {
     content: "";
@@ -99,7 +100,78 @@
 .nav .searchBar {
     grid-area: search;
 }
+/* ****************************************************** */
+ /**************** Hamburguer menu styles *********************/
+/* ****************************************************** */
+.hamburgerMenu {
+    display: none;
+    cursor: pointer;
+  }
+  
+  /* Hide regular buttons when the hamburger menu is open */
+  .hide {
+    display: none !important;
+  }
+  /* ********************************************************************************** */
+/* ********************* MENU ICON ****************************** */
+/* ********************************************************************************** */
+.menuIcon {
+    display: none;
+    width: 50px;
+    height: 50px;
+    color: #f5f5f5;
+}
+.hamburgerMenu {
+   /* display: block; */
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    position: relative; /* Añadir posición relativa */
+    z-index: 30; /* Asegurar que el botón esté en el primer plano */
+    margin-left: 50px;
+}
 
+.menuOverlay {
+    position: absolute;
+    top: 20%;
+    left: 0%;
+/*     width: 100vw;
+    height: 100vh; */
+   /*  background-color: rgba(0, 0, 0, 0.5); */ /* Fondo de superposición semi-transparente */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 30;
+
+    padding: 0px 10px 10px 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #1a1a1a;
+    color: #1a1a1a;
+    cursor: pointer;
+}
+.menuItems {
+    background-color: #1a1a1a;
+    width: 200px;
+    padding: 10px;
+    border-radius: 5px;
+}
+/* .menuItems a {
+    text-decoration: none;
+    color: black;
+    display: block;
+    margin-bottom: 10px;
+}
+.menuItems a:hover {
+    color: #FE654F
+} */
+.btn_hamburguerMenu {
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+}
 /* ****************************************************** */
  /**************** Media Queries *********************/
 /* ****************************************************** */
@@ -116,10 +188,18 @@
         width: 240%;
       }
 }
-@media  screen and (max-width: 1100px) {
-
+@media screen and (max-width: 1100px) {
+    .btnComun {
+        display: none;
+    }
     .nav::after {
-        left: -55%;
-        width: 210%;
-      }
-}
+        display: none;
+    }
+    .menuIcon {
+        display: block;
+    }
+    .hamburgerMenu {
+        display: block;
+        margin-left: 70px;
+    }
+  }
