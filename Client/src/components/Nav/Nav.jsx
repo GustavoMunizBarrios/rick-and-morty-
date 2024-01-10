@@ -10,6 +10,9 @@ const Nav = ({ onSearch, logOut }) => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     return (
         <nav className={style.nav}>
+            <button className={style.hamburgerMenu} onClick={() => setIsMenuOpen(!isMenuOpen)}>
+              <img className={style.menuIcon} src={menuIcon} alt="Menu Icon" />
+            </button>
 
             <button className={`${style.btnComun} ${style.home}`}>
                 <Link to='/home' >Home</Link>
@@ -31,9 +34,6 @@ const Nav = ({ onSearch, logOut }) => {
                 <SearchBar onSearch={onSearch}/>
             </div>
 
-            <button className={style.hamburgerMenu} onClick={() => setIsMenuOpen(!isMenuOpen)}>
-              <img className={style.menuIcon} src={menuIcon} alt="Menu Icon" />
-            </button>
             {isMenuOpen && (
               <div className={style.menuOverlay}>
                 <div className={style.menuItems}>
