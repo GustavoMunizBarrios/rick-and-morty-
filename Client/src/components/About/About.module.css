@@ -1,0 +1,19 @@
+.container {
+    display: grid;
+    justify-items: center;
+    padding: 5px 16px;
+    margin-top: 40px;
+    color: aliceblue;
+}
+.container_paragraph {
+    display: grid;
+    width: 500px;
+}
+/* ****************************************************** */
+/**************** Media Queries *********************/
+/* ****************************************************** */
+@media screen and (max-width: 570px) {
+    .container_paragraph {
+        width: 300px;
+    }
+}
