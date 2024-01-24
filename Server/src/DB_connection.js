@@ -1,13 +1,16 @@
 require('dotenv').config();
 const { Sequelize } = require('sequelize');
-const { DB_USER, DB_PASSWORD, DB_HOST, DB_NAME } = process.env;
+const { DB_USER, DB_PASSWORD, DB_HOST, DB_NAME, DB_DEPLOY } = process.env;
 const FavoriteModel = require('./models/Favorite');// importamos el modelo Favorite y lo guardamos en una constante llamada FavoriteModel
 const UserModel = require('./models/User');// importamos el modelo User y lo guardamos en una constante llamada UserModel
 
 // URL ----> postgres://DB_USER:DB_PASSWORD@DB_HOST/rickandmorty
-const sequelize = new Sequelize(`postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/rickandmorty`,
+/* const sequelize = new Sequelize(`postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/rickandmorty`,
    { logging: false, native: false}//logging: false dejaba de imprimir en la consola,
-);
+); */
+ const sequelize = new Sequelize(DB_DEPLOY,
+   { logging: false, native: false}//logging: false dejaba de imprimir en la consola,
+); 
 // Ejecución de la función de los modelos.
 FavoriteModel(sequelize) //crea la tabla Favorite con la instancia de sequelize 
 UserModel(sequelize) //crea la tabla User con la instancia de sequelize
