@@ -8,7 +8,7 @@ const UserModel = require('./models/User');// importamos el modelo User y lo gua
 /* const sequelize = new Sequelize(`postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/rickandmorty`,
    { logging: false, native: false}//logging: false dejaba de imprimir en la consola,
 ); */
- const sequelize = new Sequelize(DB_DEPLOY,
+ var sequelize = new Sequelize(DB_DEPLOY,
    { logging: false, native: false}//logging: false dejaba de imprimir en la consola,
 ); 
 // Ejecución de la función de los modelos.
